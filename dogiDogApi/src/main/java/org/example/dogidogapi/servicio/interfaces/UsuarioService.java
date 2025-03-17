@@ -10,4 +10,6 @@ public interface UsuarioService {
     Usuario guardar(Usuario usuario);
     Usuario actualizar(Usuario nueva, Integer id);
     Usuario eliminar(Integer id);
+    Usuario inicioSesion(String email, String password);
+    Usuario verificarEmail(String email);
 }

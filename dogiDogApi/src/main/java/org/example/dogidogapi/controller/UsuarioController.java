@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/dogidog")
 public class UsuarioController {
@@ -32,6 +33,26 @@ public class UsuarioController {
         if (usuario == null) {
             return ResponseEntity.notFound().build();
         }else {
+            return ResponseEntity.ok(usuario);
+        }
+    }
+
+    @GetMapping("/usuarios/inicio")
+    public ResponseEntity<?> inicioSesion(@RequestParam String email, @RequestParam String password) {
+        Usuario usuario = usuarioService.inicioSesion(email, password);
+        if (usuario == null) {
+            return ResponseEntity.notFound().build();
+        }else{
+            return ResponseEntity.ok(usuario);
+        }
+    }
+
+    @GetMapping("/usuarios/email/{email}")
+    public ResponseEntity<?> verificarUsuario(@PathVariable String email) {
+        Usuario usuario = usuarioService.verificarEmail(email);
+        if (usuario == null) {
+            return ResponseEntity.notFound().build();
+        }else{
             return ResponseEntity.ok(usuario);
         }
     }
