@@ -1,5 +1,6 @@
 package org.example.dogidogapi.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import org.hibernate.annotations.ColumnDefault;
 
@@ -27,9 +28,6 @@ public class Logro {
     @ColumnDefault("0")
     @Column(name = "usuarios_desbloqueados")
     private Integer usuariosDesbloqueados;
-
-    @OneToMany(mappedBy = "logro")
-    private Set<Usuarioslogro> usuarioslogros = new LinkedHashSet<>();
 
     public Integer getId() {
         return id;
@@ -69,14 +67,6 @@ public class Logro {
 
     public void setUsuariosDesbloqueados(Integer usuariosDesbloqueados) {
         this.usuariosDesbloqueados = usuariosDesbloqueados;
-    }
-
-    public Set<Usuarioslogro> getUsuarioslogros() {
-        return usuarioslogros;
-    }
-
-    public void setUsuarioslogros(Set<Usuarioslogro> usuarioslogros) {
-        this.usuarioslogros = usuarioslogros;
     }
 
 }

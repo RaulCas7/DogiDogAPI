@@ -1,6 +1,7 @@
 package org.example.dogidogapi.servicio;
 
 import org.example.dogidogapi.model.Notificacion;
+import org.example.dogidogapi.model.Usuario;
 import org.example.dogidogapi.repository.NotificacionRepository;
 import org.example.dogidogapi.servicio.interfaces.NotificacionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,5 +48,10 @@ public class NotificacionServiceImpl implements NotificacionService {
         }else{
             return null;
         }
+    }
+
+    @Override
+    public List<Notificacion> buscarNotificacionesPorUsuario(Usuario usuario) {
+        return notificacionRepository.findByUsuario(usuario);
     }
 }

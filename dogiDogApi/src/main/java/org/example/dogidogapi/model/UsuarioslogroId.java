@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Embeddable
-public class UsuarioslogroId implements Serializable {
+public class UsuarioslogroId extends Usuarioslogro implements Serializable {
     private static final long serialVersionUID = 9130239187513647627L;
     @Column(name = "usuario_id", nullable = false)
     private Integer usuarioId;

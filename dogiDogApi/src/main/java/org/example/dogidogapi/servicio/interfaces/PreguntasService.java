@@ -10,4 +10,5 @@ public interface PreguntasService {
     Pregunta guardar(Pregunta pregunta);
     Pregunta actualizar(Pregunta nueva, Integer id);
     Pregunta eliminar(Integer id);
+    Pregunta buscarPorPregunta(String pregunta);
 }

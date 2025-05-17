@@ -1,5 +1,7 @@
 package org.example.dogidogapi.servicio;
 
+import org.example.dogidogapi.model.Logro;
+import org.example.dogidogapi.model.Usuario;
 import org.example.dogidogapi.model.Usuarioslogro;
 import org.example.dogidogapi.model.UsuarioslogroId;
 import org.example.dogidogapi.repository.UsuarioslogroRepository;
@@ -7,6 +9,7 @@ import org.example.dogidogapi.servicio.interfaces.UsuarioslogroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -49,4 +52,10 @@ public class UsuarioslogroServiceImpl implements UsuarioslogroService {
             return null;
         }
     }
+
+    @Override
+    public List<Usuarioslogro> buscarLogrosDeUsuario(Usuario id) {
+        return usuarioslogroRepository.findByUsuario(id);
+    }
+
 }

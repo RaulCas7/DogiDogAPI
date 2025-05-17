@@ -1,6 +1,7 @@
 package org.example.dogidogapi.model;
 
 import jakarta.persistence.*;
+import org.example.dogidogapi.listener.NotificacionListener;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -9,6 +10,7 @@ import java.time.Instant;
 
 @Entity
 @Table(name = "notificaciones")
+@EntityListeners(NotificacionListener.class)
 public class Notificacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

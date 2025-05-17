@@ -48,4 +48,9 @@ public class PreguntasServiceImpl implements PreguntasService {
             return null;
         }
     }
+
+    @Override
+    public Pregunta buscarPorPregunta(String pregunta) {
+        return preguntasRepository.findByPregunta(pregunta);
+    }
 }

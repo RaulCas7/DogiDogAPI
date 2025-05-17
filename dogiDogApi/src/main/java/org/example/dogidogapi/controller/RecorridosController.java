@@ -1,7 +1,9 @@
 package org.example.dogidogapi.controller;
 
+import org.example.dogidogapi.model.Mascota;
 import org.example.dogidogapi.model.Raza;
 import org.example.dogidogapi.model.Recorrido;
+import org.example.dogidogapi.servicio.interfaces.MascotaService;
 import org.example.dogidogapi.servicio.interfaces.RazaService;
 import org.example.dogidogapi.servicio.interfaces.RecorridosmascotaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,8 @@ import java.util.List;
 public class RecorridosController {
     @Autowired
     private RecorridosmascotaService recorridosmascotaService;
+    @Autowired
+    private MascotaService mascotaService;
 
     @GetMapping("/recorridos")
     public ResponseEntity<?> obtenerTodosLosRecorridos() {
@@ -35,11 +39,17 @@ public class RecorridosController {
             return ResponseEntity.ok(recorrido);
         }
     }
-
     @PostMapping("/recorridos")
     public ResponseEntity<?> guardarRecorrido(@RequestBody Recorrido recorrido) {
-        recorridosmascotaService.guardar(recorrido);
-        return ResponseEntity.ok().build();
+        // ¡OJO! Aquí está el truco
+        Integer mascotaId = recorrido.getMascota().getId();
+
+        Mascota mascota = mascotaService.findById(mascotaId);
+
+        recorrido.setMascota(mascota); // aquí metes una mascota "persistente"
+
+        Recorrido guardado = recorridosmascotaService.guardar(recorrido);
+        return ResponseEntity.ok(guardado.getId());
     }
 
     @PutMapping("/recorridos/{id}")
@@ -59,5 +69,11 @@ public class RecorridosController {
         }else{
             return ResponseEntity.ok(recorridosmascotaService.eliminar(id));
         }
+    }
+
+    @GetMapping("/recorridos/activos")
+    public ResponseEntity<List<Recorrido>> obtenerRecorridosActivos() {
+        List<Recorrido> recorridos = recorridosmascotaService.findAllActivos();
+        return ResponseEntity.ok(recorridos);
     }
 }

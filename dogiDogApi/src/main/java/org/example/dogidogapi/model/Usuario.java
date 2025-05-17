@@ -8,7 +8,8 @@ import java.util.Set;
 
 @Entity
 @Table(name = "usuarios")
-public class Usuario {
+public class Usuario  {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -27,7 +28,19 @@ public class Usuario {
     @Column(name = "contador_preguntas")
     private Integer contadorPreguntas;
 
+    @Column(name = "latitud")
+    private Double latitud;
 
+    @Column(name = "longitud")
+    private Double longitud;
+
+    @Column(name = "valoracion")
+    private Integer valoracion;
+
+    @Column(name = "foto")
+    private Integer foto;
+
+    // Getters y setters
     public Integer getId() {
         return id;
     }
@@ -68,5 +81,35 @@ public class Usuario {
         this.contadorPreguntas = contadorPreguntas;
     }
 
+    public Double getLatitud() {
+        return latitud;
+    }
 
+    public void setLatitud(Double latitud) {
+        this.latitud = latitud;
+    }
+
+    public Double getLongitud() {
+        return longitud;
+    }
+
+    public void setLongitud(Double longitud) {
+        this.longitud = longitud;
+    }
+
+    public Integer getValoracion() {
+        return valoracion;
+    }
+
+    public void setValoracion(Integer valoracion) {
+        this.valoracion = valoracion;
+    }
+
+    public Integer getFoto() {
+        return foto;
+    }
+
+    public void setFoto(Integer foto) {
+        this.foto = foto;
+    }
 }

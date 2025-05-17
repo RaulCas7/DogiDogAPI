@@ -1,7 +1,10 @@
 package org.example.dogidogapi.controller;
 
+import org.example.dogidogapi.model.Mascota;
 import org.example.dogidogapi.model.Notificacion;
+import org.example.dogidogapi.model.Usuario;
 import org.example.dogidogapi.servicio.interfaces.NotificacionService;
+import org.example.dogidogapi.servicio.interfaces.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +17,8 @@ import java.util.List;
 public class NotificacionController {
     @Autowired
     private NotificacionService notificacionService;
+    @Autowired
+    private UsuarioService usuarioService;
 
     @GetMapping("/notificaciones")
     public ResponseEntity<?> obtenerTodasLasNotificaciones() {
@@ -57,6 +62,20 @@ public class NotificacionController {
             return ResponseEntity.notFound().build();
         }else{
             return ResponseEntity.ok(notificacionService.eliminar(id));
+        }
+    }
+    @GetMapping("/notificaciones/usuario")
+    public ResponseEntity<?> obtenerLasNotificacionesDeUnUsuario(@RequestParam int usuarioId) {
+        Usuario usuario = usuarioService.findById(usuarioId);
+        if(usuario == null) {
+            return ResponseEntity.notFound().build();
+        }else{
+            List<Notificacion> notificaciones = notificacionService.buscarNotificacionesPorUsuario(usuario);
+            if(notificaciones.isEmpty()) {
+                return ResponseEntity.noContent().build();
+            }else {
+                return ResponseEntity.ok(notificaciones);
+            }
         }
     }
 }

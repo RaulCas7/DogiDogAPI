@@ -58,6 +58,15 @@ public class Mascota {
     @Column(name = "metros_recorridos")
     private Long metrosRecorridos;
 
+    // Añadimos el campo "pienso"
+    @Column(name = "pienso", nullable = true, length = 100)
+    private String pienso;
+
+
+    // Nueva columna microchip
+    @Column(name = "microchip", length = 50)
+    private String microchip;
+
     public Integer getId() {
         return id;
     }
@@ -162,4 +171,19 @@ public class Mascota {
         this.metrosRecorridos = metrosRecorridos;
     }
 
+    public String getPienso() {
+        return pienso;
+    }
+
+    public void setPienso(String pienso) {
+        this.pienso = pienso;
+    }
+    // Getters y Setters para la nueva columna microchip
+    public String getMicrochip() {
+        return microchip;
+    }
+
+    public void setMicrochip(String microchip) {
+        this.microchip = microchip;
+    }
 }

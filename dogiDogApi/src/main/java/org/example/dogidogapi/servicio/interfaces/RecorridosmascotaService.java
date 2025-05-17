@@ -10,4 +10,5 @@ public interface RecorridosmascotaService {
     Recorrido guardar(Recorrido recorrido);
     Recorrido actualizar(Recorrido nueva, Integer id);
     Recorrido eliminar(Integer id);
+    List<Recorrido> findAllActivos();  // Obtener todos los recorridos activos
 }

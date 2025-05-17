@@ -69,6 +69,26 @@ public class UsuarioServiceImpl implements UsuarioService {
         return usuarioRepository.findUsuarioByEmailAndPassword(email, md5Password);
     }
 
+    public Usuario actualizarCoordenadas(Integer id, Double latitud, Double longitud) {
+        Usuario usuario = usuarioRepository.findById(id).orElse(null);
+        if (usuario != null) {
+            usuario.setLatitud(latitud);
+            usuario.setLongitud(longitud);
+            usuarioRepository.save(usuario);
+        }
+        return usuario;
+    }
+
+    public Usuario terminarPaseo(Integer id) {
+        Usuario usuario = usuarioRepository.findById(id).orElse(null);
+        if (usuario != null) {
+            usuario.setLatitud(null);
+            usuario.setLongitud(null);
+            usuarioRepository.save(usuario);
+        }
+        return usuario;
+    }
+
     @Override
     public Usuario verificarEmail(String email) {
         return usuarioRepository.findUsuarioByEmail(email);

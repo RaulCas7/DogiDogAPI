@@ -49,4 +49,9 @@ public class RecorridosmascotaServiceImpl implements RecorridosmascotaService {
             return null;
         }
     }
+
+    @Override
+    public List<Recorrido> findAllActivos() {
+        return recorridosmascotaRepository.findAllActivos(); // Llamar al método del repositorio para obtener los activos
+    }
 }

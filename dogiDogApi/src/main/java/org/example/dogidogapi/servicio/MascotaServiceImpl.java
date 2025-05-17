@@ -1,6 +1,7 @@
 package org.example.dogidogapi.servicio;
 
 import org.example.dogidogapi.model.Mascota;
+import org.example.dogidogapi.model.Usuario;
 import org.example.dogidogapi.repository.MascotaRepository;
 import org.example.dogidogapi.servicio.interfaces.MascotaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,5 +48,10 @@ public class MascotaServiceImpl implements MascotaService {
         }else{
             return null;
         }
+    }
+
+    @Override
+    public List<Mascota> findByUsuario(Usuario usuario) {
+        return mascotaRepository.findByUsuario(usuario);
     }
 }

@@ -1,6 +1,8 @@
 package org.example.dogidogapi.servicio;
 
 import org.example.dogidogapi.model.Documentacion;
+import org.example.dogidogapi.model.Mascota;
+import org.example.dogidogapi.model.Usuario;
 import org.example.dogidogapi.repository.DocumentacionRepository;
 import org.example.dogidogapi.servicio.interfaces.DocumentacionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,5 +52,10 @@ public class DocumentacionServiceImpl implements DocumentacionService {
         }else {
             return null;
         }
+    }
+
+    @Override
+    public List<Documentacion> buscarDocumentosPorMascota(Mascota mascota) {
+        return documentacionRepository.findByMascota(mascota);
     }
 }

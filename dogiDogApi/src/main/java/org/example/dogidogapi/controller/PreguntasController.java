@@ -5,6 +5,7 @@ import org.example.dogidogapi.model.Pregunta;
 import org.example.dogidogapi.servicio.interfaces.NotificacionService;
 import org.example.dogidogapi.servicio.interfaces.PreguntasService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -59,6 +60,17 @@ public class PreguntasController {
             return ResponseEntity.notFound().build();
         }else{
             return ResponseEntity.ok(preguntasService.eliminar(id));
+        }
+    }
+
+    @GetMapping("/preguntas/buscar")
+    public ResponseEntity<Pregunta> buscarPorPregunta(@RequestParam("texto") String texto) {
+        Pregunta pregunta = preguntasService.buscarPorPregunta(texto);
+
+        if (pregunta != null) {
+            return ResponseEntity.ok(pregunta);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }
 }

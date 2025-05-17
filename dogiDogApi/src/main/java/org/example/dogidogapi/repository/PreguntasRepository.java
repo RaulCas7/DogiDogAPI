@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PreguntasRepository extends JpaRepository<Pregunta,Integer> {
+    Pregunta findByPregunta(String pregunta);
 }

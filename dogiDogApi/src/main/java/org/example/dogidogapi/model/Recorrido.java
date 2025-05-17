@@ -7,7 +7,7 @@ import org.hibernate.annotations.OnDeleteAction;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "recorridosmascotas")
+@Table(name = "recorridos")
 public class Recorrido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +22,7 @@ public class Recorrido {
     @Column(name = "fecha", nullable = false)
     private LocalDate fecha;
 
-    @Column(name = "distancia", nullable = false)
+    @Column(name = "distancia")
     private Integer distancia;
 
     @Column(name = "duracion")

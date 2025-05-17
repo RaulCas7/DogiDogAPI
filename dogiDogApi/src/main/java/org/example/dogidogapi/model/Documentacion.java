@@ -37,7 +37,7 @@ public class Documentacion {
 
     @ColumnDefault("CURRENT_TIMESTAMP")
     @Column(name = "creado_en")
-    private Instant creadoEn;
+    private LocalDate creadoEn;
 
     public Integer getId() {
         return id;
@@ -87,11 +87,11 @@ public class Documentacion {
         this.archivo = archivo;
     }
 
-    public Instant getCreadoEn() {
+    public LocalDate getCreadoEn() {
         return creadoEn;
     }
 
-    public void setCreadoEn(Instant creadoEn) {
+    public void setCreadoEn(LocalDate creadoEn) {
         this.creadoEn = creadoEn;
     }
 

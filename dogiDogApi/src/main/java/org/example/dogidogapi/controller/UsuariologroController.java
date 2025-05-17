@@ -1,9 +1,8 @@
 package org.example.dogidogapi.controller;
 
-import org.example.dogidogapi.model.Raza;
-import org.example.dogidogapi.model.Usuarioslogro;
-import org.example.dogidogapi.model.UsuarioslogroId;
+import org.example.dogidogapi.model.*;
 import org.example.dogidogapi.servicio.interfaces.RazaService;
+import org.example.dogidogapi.servicio.interfaces.UsuarioService;
 import org.example.dogidogapi.servicio.interfaces.UsuarioslogroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +15,9 @@ import java.util.List;
 public class UsuariologroController {
     @Autowired
     private UsuarioslogroService usuarioslogroService;
+
+    @Autowired
+    private UsuarioService usuarioService;
 
     @GetMapping("/usuarioLogros")
     public ResponseEntity<?> obtenerTodosLosLogrosDeUsuarios() {
@@ -60,5 +62,20 @@ public class UsuariologroController {
         }else{
             return ResponseEntity.ok(usuarioslogroService.eliminar(id));
         }
+    }
+
+    @GetMapping("/usuarioLogros/usuario/{usuarioId}")
+    public ResponseEntity<?> obtenerLogrosDeUsuario(@PathVariable Integer usuarioId) {
+        Usuario usuario = usuarioService.findById(usuarioId);
+        if(usuario == null) {
+            return ResponseEntity.notFound().build();
+        }else{
+        List<Usuarioslogro> usuariosLogro = usuarioslogroService.buscarLogrosDeUsuario(usuario);  // Buscar los logros del usuario
+        if (usuariosLogro.isEmpty()) {
+            return ResponseEntity.noContent().build();  // Si no hay logros, retornar sin contenido
+        } else {
+            return ResponseEntity.ok(usuariosLogro);  // Devolver los logros del usuario
+        }
+    }
     }
 }

@@ -1,5 +1,7 @@
 package org.example.dogidogapi.servicio.interfaces;
 
+import org.example.dogidogapi.model.Logro;
+import org.example.dogidogapi.model.Usuario;
 import org.example.dogidogapi.model.Usuarioslogro;
 import org.example.dogidogapi.model.UsuarioslogroId;
 
@@ -11,4 +13,5 @@ public interface UsuarioslogroService {
     Usuarioslogro guardar(Usuarioslogro usuarioslogro);
     Usuarioslogro actualizar(Usuarioslogro nueva, UsuarioslogroId id);
     Usuarioslogro eliminar(UsuarioslogroId id);
+    List<Usuarioslogro> buscarLogrosDeUsuario(Usuario id);
 }
