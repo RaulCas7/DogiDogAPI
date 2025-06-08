@@ -1,6 +1,6 @@
 # 🐾 DogiDogAPI
 
-**DogiDogAPI** es el backend oficial del ecosistema DogiDog, una plataforma moderna dedicada a la gestión de perros, usuarios, valoraciones, notificaciones, incidencias y más. Esta API está construida con **Spring Boot 3.4.1**, conectada a una base de datos **MySQL** y diseñada para integrarse tanto con una aplicación de escritorio como una aplicación móvil.
+**DogiDogAPI** es el backend oficial del ecosistema DogiDog la aplicación desarrollada por Raúl Casas Gómez para el instituto Miguel Herrero Pereda, una plataforma moderna dedicada a la gestión de perros, usuarios, valoraciones, notificaciones, incidencias y más. Esta API está construida con **Spring Boot 3.4.1**, conectada a una base de datos **MySQL** y diseñada para integrarse tanto con una aplicación de escritorio como una aplicación móvil.
 
 ---
 
@@ -102,7 +102,7 @@ Puedes correr pruebas unitarias con:
 Esta API sirve de backend a:
 
 - [DogiDog Escritorio](https://github.com/RaulCas7/DogiDogEscritorio)
-- DogiDog Móvil (en desarrollo)
+- [DogiDog Móvil](https://github.com/RaulCas7/DogiDogMoviles)
 
 ---
 
