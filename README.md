@@ -71,8 +71,8 @@ Algunos de los endpoints REST incluidos:
 - `POST /usuarios/login` – Inicia sesión.
 - `GET /valoraciones` – Obtiene valoraciones entre usuarios.
 - `POST /notificaciones` – Envía notificaciones.
-- `POST /incidencias` – Registra incidencias.
-- `GET /bot/preguntas` – Obtiene respuestas del DogiBot.
+- `POST /tareas` – Registra incidencias.
+- `GET /preguntas` – Obtiene respuestas del DogiBot.
 
 > Puedes explorar todos los endpoints con Postman o integrarlos fácilmente con tu frontend de escritorio/móvil.
 
@@ -123,5 +123,5 @@ Esta API sirve de backend a:
 
 ## 📬 Contacto
 
-Desarrollado por [Raúl Castaño](https://github.com/RaulCas7).  
-Para dudas o soporte: raulcasdev@gmail.com
+Desarrollado por [Raúl Casas](https://github.com/RaulCas7).  
+
