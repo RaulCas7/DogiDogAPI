@@ -9,6 +9,7 @@ import org.example.dogidogapi.servicio.util.FileUploadUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -73,8 +74,9 @@ public class UsuarioController {
 
     @PostMapping("/usuarios")
     public ResponseEntity<?> guardarUsuario(@RequestBody Usuario usuario) {
-        usuarioService.guardar(usuario);
-        return ResponseEntity.ok().build();
+        Usuario nuevo = usuarioService.guardar(usuario);
+        return ResponseEntity.ok(nuevo);
+
     }
 
     @PutMapping("/usuarios/{id}")
@@ -112,5 +114,8 @@ public class UsuarioController {
         return usuario != null ? ResponseEntity.ok(usuario) : ResponseEntity.notFound().build();
     }
 
-
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity<String> handleDuplicateKeyException(DataIntegrityViolationException ex) {
+        return ResponseEntity.status(HttpStatus.CONFLICT).body("El correo o usuario ya está registrado.");
+    }
 }

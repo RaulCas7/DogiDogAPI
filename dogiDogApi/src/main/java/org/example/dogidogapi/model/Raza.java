@@ -14,7 +14,7 @@ public class Raza {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "nombre", nullable = false, length = 50)
+    @Column(name = "nombre", length = 50)
     private String nombre;
 
     @Column(name = "energia")
@@ -29,23 +29,23 @@ public class Raza {
     @Column(name = "cuidado")
     private Byte cuidado;
 
-    @Column(name = "peso_min_macho", nullable = false, precision = 5, scale = 2)
+    @Column(name = "peso_min_macho", precision = 5, scale = 2)
     private BigDecimal pesoMinMacho;
 
-    @Column(name = "peso_max_macho", nullable = false, precision = 5, scale = 2)
+    @Column(name = "peso_max_macho",  precision = 5, scale = 2)
     private BigDecimal pesoMaxMacho;
 
-    @Column(name = "peso_min_hembra", nullable = false, precision = 5, scale = 2)
+    @Column(name = "peso_min_hembra",  precision = 5, scale = 2)
     private BigDecimal pesoMinHembra;
 
-    @Column(name = "peso_max_hembra", nullable = false, precision = 5, scale = 2)
+    @Column(name = "peso_max_hembra",precision = 5, scale = 2)
     private BigDecimal pesoMaxHembra;
 
-    @Column(name = "edad_maxima", nullable = false)
+    @Column(name = "edad_maxima")
     private Integer edadMaxima;
 
     @Lob
-    @Column(name = "descripcion", nullable = false)
+    @Column(name = "descripcion")
     private String descripcion;
 
     @Lob

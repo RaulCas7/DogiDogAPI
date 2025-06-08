@@ -40,6 +40,7 @@ public class PreguntasController {
 
     @PostMapping("/preguntas")
     public ResponseEntity<?> guardarPregunta(@RequestBody Pregunta pregunta) {
+        pregunta.setId(null);
         preguntasService.guardar(pregunta);
         return ResponseEntity.ok().build();
     }

@@ -38,6 +38,7 @@ public class RazaController {
 
     @PostMapping("/razas")
     public ResponseEntity<?> guardarRaza(@RequestBody Raza raza) {
+        raza.setId(null);
         razaService.guardar(raza);
         return ResponseEntity.ok().build();
     }

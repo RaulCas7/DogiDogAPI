@@ -23,7 +23,7 @@ public class ValoracionController {
     @Autowired
     private UsuarioService usuarioService;
 
-    @GetMapping
+    @GetMapping("/valoraciones")
     public ResponseEntity<?> obtenerTodos() {
         List<Valoracion> valoraciones = valoracionService.findAll();
         return valoraciones.isEmpty() ? ResponseEntity.noContent().build() : ResponseEntity.ok(valoraciones);

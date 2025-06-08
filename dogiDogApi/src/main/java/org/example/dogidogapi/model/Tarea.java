@@ -10,7 +10,7 @@ public class Tarea {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer id_tarea;
 
     private String titulo;
 
@@ -36,11 +36,11 @@ public class Tarea {
     // Getters y Setters
 
     public Integer getId() {
-        return id;
+        return id_tarea;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.id_tarea = id;
     }
 
     public String getTitulo() {
@@ -105,7 +105,7 @@ public class Tarea {
     }
 
     public enum Estado {
-        Pendiente, En_progreso, Completada, Cancelada
+        Pendiente, EnProgreso, Completada, Cancelada, Abierta
     }
 }
 

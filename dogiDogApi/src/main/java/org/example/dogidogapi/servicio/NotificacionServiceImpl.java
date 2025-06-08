@@ -3,6 +3,7 @@ package org.example.dogidogapi.servicio;
 import org.example.dogidogapi.model.Notificacion;
 import org.example.dogidogapi.model.Usuario;
 import org.example.dogidogapi.repository.NotificacionRepository;
+import org.example.dogidogapi.repository.UsuarioRepository;
 import org.example.dogidogapi.servicio.interfaces.NotificacionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,7 @@ import java.util.List;
 public class NotificacionServiceImpl implements NotificacionService {
     @Autowired
     private NotificacionRepository notificacionRepository;
+
 
     @Override
     public List<Notificacion> findAll() {

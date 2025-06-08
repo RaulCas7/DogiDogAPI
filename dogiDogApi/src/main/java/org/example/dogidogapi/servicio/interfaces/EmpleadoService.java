@@ -10,4 +10,5 @@ public interface EmpleadoService {
     Empleado guardar(Empleado empleado);
     Empleado actualizar(Empleado nuevo, Integer id);
     Empleado eliminar(Integer id);
+    Empleado findByUsuarioId(Integer usuarioId);
 }

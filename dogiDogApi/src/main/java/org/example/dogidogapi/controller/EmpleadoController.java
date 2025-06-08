@@ -60,4 +60,14 @@ public class EmpleadoController {
             return ResponseEntity.ok(empleadoService.eliminar(id));
         }
     }
+
+    @GetMapping("/empleados/usuario/{usuarioId}")
+    public ResponseEntity<?> obtenerEmpleadoPorUsuarioId(@PathVariable Integer usuarioId) {
+        Empleado empleado = empleadoService.findByUsuarioId(usuarioId);
+        if (empleado == null) {
+            return ResponseEntity.notFound().build();
+        } else {
+            return ResponseEntity.ok(empleado);
+        }
+    }
 }

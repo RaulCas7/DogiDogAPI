@@ -50,4 +50,9 @@ public class EmpleadoServiceImpl implements EmpleadoService {
             return null;
         }
     }
+
+    @Override
+    public Empleado findByUsuarioId(Integer usuarioId) {
+        return empleadoRepository.findByUsuarioId(usuarioId);
+    }
 }

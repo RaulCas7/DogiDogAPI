@@ -20,6 +20,8 @@ public class NotificacionController {
     @Autowired
     private UsuarioService usuarioService;
 
+
+
     @GetMapping("/notificaciones")
     public ResponseEntity<?> obtenerTodasLasNotificaciones() {
         List<Notificacion> notificaciones = notificacionService.findAll();
