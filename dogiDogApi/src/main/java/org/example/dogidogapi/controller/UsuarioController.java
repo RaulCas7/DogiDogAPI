@@ -74,6 +74,7 @@ public class UsuarioController {
 
     @PostMapping("/usuarios")
     public ResponseEntity<?> guardarUsuario(@RequestBody Usuario usuario) {
+        usuario.setId(null);
         Usuario nuevo = usuarioService.guardar(usuario);
         return ResponseEntity.ok(nuevo);
 
